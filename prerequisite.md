@@ -21,6 +21,10 @@ vscode 用 ctrl+shift+v 打开markdown的预览界面
 
 [RISCV32I](https://blog.csdn.net/qq_43186162/article/details/131985653?ops_request_misc=&request_id=&biz_id=102&utm_term=%E5%8D%95%E5%91%A8%E6%9C%9Fcpu%E8%AE%BE%E8%AE%A1&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduweb~default-1-131985653.142^v100^pc_search_result_base8&spm=1018.2226.3001.4187)
 
+
+### 完整的流程，包括顶层模块
+[流程](https://blog.csdn.net/wuyzh39/article/details/127915577?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_baidulandingword~default-1-127915577-blog-114003321.235^v43^pc_blog_bottom_relevance_base8&spm=1001.2101.3001.4242.2&utm_relevant_index=4)
+
 ### 目前还没看的！
 **如何将编译好的机器码挪到仿真上**
 

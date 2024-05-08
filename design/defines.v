@@ -9,6 +9,7 @@
 `define     INSTR_TYPE_B        7'b1100011
 `define     INSTR_TYPE_J        7'b1101111
 `define     INSTR_TYPE_JR       7'b1100111
+
 `define     INSTR_TYPE_U        7'b0110111
 `define     INSTR_TYPE_UPC      7'b0010111
 `define     INSTR_TYPE_IE       7'b1110011

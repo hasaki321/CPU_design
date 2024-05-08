@@ -11,9 +11,9 @@ echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executi
 exit
 
 if [ -z "$PATH" ]; then
-  PATH=F:/vivado/SDK/2018.1/bin;F:/vivado/Vivado/2018.1/ids_lite/ISE/bin/nt64;F:/vivado/Vivado/2018.1/ids_lite/ISE/lib/nt64:F:/vivado/Vivado/2018.1/bin
+  PATH=D:/Vivado2018.2/SDK/2018.2/bin;D:/Vivado2018.2/Vivado/2018.2/ids_lite/ISE/bin/nt64;D:/Vivado2018.2/Vivado/2018.2/ids_lite/ISE/lib/nt64:D:/Vivado2018.2/Vivado/2018.2/bin
 else
-  PATH=F:/vivado/SDK/2018.1/bin;F:/vivado/Vivado/2018.1/ids_lite/ISE/bin/nt64;F:/vivado/Vivado/2018.1/ids_lite/ISE/lib/nt64:F:/vivado/Vivado/2018.1/bin:$PATH
+  PATH=D:/Vivado2018.2/SDK/2018.2/bin;D:/Vivado2018.2/Vivado/2018.2/ids_lite/ISE/bin/nt64;D:/Vivado2018.2/Vivado/2018.2/ids_lite/ISE/lib/nt64:D:/Vivado2018.2/Vivado/2018.2/bin:$PATH
 fi
 export PATH
 
@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/h/Desktop/CPU_design/design/design.runs/blk_mem_gen_0_synth_1'
+HD_PWD='C:/Users/hasaki/Desktop/CPU_design/design/design.runs/blk_mem_gen_0_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

@@ -1,6 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  --include "../../../../" \
 "../../../../design.srcs/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" \
+"../../../../ID.v" \
 "../../../../Mem.v" \
 "../../../../PC.v" \
 "../../../../test_frame.v" \

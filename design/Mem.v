@@ -11,12 +11,13 @@ module Mem (
     input [31:0] w_addr,
     input [31:0] w_data,
 
-    output [31:0] out_data
+    output reg [31:0] read_data
 );
 
 wire [31:0] ram_data_o; 
-reg [31:0] read_data; 
-reg [31:0] ram_data_i; 
+
+reg [31:0] ram_data_i = 32'b0; 
+wire [3:0] fucnt = {1'b0,funct3};
 
 blk_mem_gen_0 instruc_mem ( 
   .clka      (clk          ),            // input clka 
@@ -30,9 +31,11 @@ blk_mem_gen_0 instruc_mem (
   ); 
 
 always @(*) begin
+    read_data = 32'b0;
+    
     case({Re,We})
-        10:begin 
-            case(funct3)
+        2'b10:begin 
+            case(fucnt)
                 `L_BYTE:begin
                     read_data   =   {{24{ram_data_o[7]}},ram_data_o[7:0]};
                 end
@@ -50,7 +53,7 @@ always @(*) begin
                 end
             endcase
         end
-        01:begin
+        2'b01:begin
             case(funct3)
                 `S_BYTE:begin 
                     ram_data_i    =   {{ram_data_o[31:8]},{w_data[7:0]}}   ;

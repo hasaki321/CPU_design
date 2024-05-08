@@ -1403,11 +1403,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed May 08 08:40:56 UTC 2024</spirit:value>
+            <spirit:value>Wed May 08 14:21:02 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5a882f03</spirit:value>
+            <spirit:value>8:2369c3e8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1423,11 +1423,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed May 08 08:40:56 UTC 2024</spirit:value>
+            <spirit:value>Wed May 08 14:21:02 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5a882f03</spirit:value>
+            <spirit:value>8:2369c3e8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1443,11 +1443,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed May 08 08:40:56 UTC 2024</spirit:value>
+            <spirit:value>Wed May 08 14:21:02 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5a882f03</spirit:value>
+            <spirit:value>8:2369c3e8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1462,11 +1462,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed May 08 08:40:56 UTC 2024</spirit:value>
+            <spirit:value>Wed May 08 14:21:02 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:9c06e593</spirit:value>
+            <spirit:value>8:6de5e9ae</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1482,11 +1482,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed May 08 08:40:56 UTC 2024</spirit:value>
+            <spirit:value>Wed May 08 14:21:02 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:9c06e593</spirit:value>
+            <spirit:value>8:6de5e9ae</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1500,11 +1500,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed May 08 08:40:56 UTC 2024</spirit:value>
+            <spirit:value>Wed May 08 14:21:03 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5a882f03</spirit:value>
+            <spirit:value>8:2369c3e8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1518,11 +1518,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Wed May 08 08:40:56 UTC 2024</spirit:value>
+            <spirit:value>Wed May 08 14:21:03 UTC 2024</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5a882f03</spirit:value>
+            <spirit:value>8:2369c3e8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1535,8 +1535,12 @@
         </spirit:fileSetRef>
         <spirit:parameters>
           <spirit:parameter>
+            <spirit:name>GENtimestamp</spirit:name>
+            <spirit:value>Wed May 08 14:22:15 UTC 2024</spirit:value>
+          </spirit:parameter>
+          <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:5a882f03</spirit:value>
+            <spirit:value>8:2369c3e8</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -3040,11 +3044,11 @@
     <spirit:modelParameters>
       <spirit:modelParameter xsi:type="spirit:nameValueTypeType" spirit:dataType="STRING">
         <spirit:name>C_FAMILY</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_FAMILY">virtex7</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_FAMILY">kintex7</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_XDEVICEFAMILY</spirit:name>
-        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_XDEVICEFAMILY">virtex7</spirit:value>
+        <spirit:value spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.C_XDEVICEFAMILY">kintex7</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="STRING">
         <spirit:name>C_ELABORATION_DIR</spirit:name>
@@ -4383,7 +4387,7 @@
       </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
-      <xilinx:xilinxVersion>2018.1</xilinx:xilinxVersion>
+      <xilinx:xilinxVersion>2018.2</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="52ed1045"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="a1d35893"/>
       <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="3cede360"/>

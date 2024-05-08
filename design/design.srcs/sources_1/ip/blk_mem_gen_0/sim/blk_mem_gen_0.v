@@ -84,8 +84,8 @@ input wire [9 : 0] addrb;
 output wire [31 : 0] doutb;
 
   blk_mem_gen_v8_4_1 #(
-    .C_FAMILY("virtex7"),
-    .C_XDEVICEFAMILY("virtex7"),
+    .C_FAMILY("kintex7"),
+    .C_XDEVICEFAMILY("kintex7"),
     .C_ELABORATION_DIR("./"),
     .C_INTERFACE_TYPE(0),
     .C_AXI_TYPE(1),

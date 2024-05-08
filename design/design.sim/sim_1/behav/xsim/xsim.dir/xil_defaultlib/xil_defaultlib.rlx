@@ -1,11 +1,12 @@
 0.6
-2018.1
-Apr  4 2018
-19:30:32
-C:/Users/h/Desktop/CPU_design/design/Mem.v,1715157199,verilog,,C:/Users/h/Desktop/CPU_design/design/PC.v,C:/Users/h/Desktop/CPU_design/design/defines.v,Mem,,,../../../../,,,,,
-C:/Users/h/Desktop/CPU_design/design/PC.v,1715158680,verilog,,C:/Users/h/Desktop/CPU_design/design/test_frame.v,C:/Users/h/Desktop/CPU_design/design/defines.v,pc_reg,,,../../../../,,,,,
-C:/Users/h/Desktop/CPU_design/design/defines.v,1715129193,verilog,,,,,,,,,,,,
-C:/Users/h/Desktop/CPU_design/design/design.sim/sim_1/behav/xsim/glbl.v,1522801934,verilog,,,,glbl,,,,,,,,
-C:/Users/h/Desktop/CPU_design/design/design.srcs/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v,1715157656,verilog,,C:/Users/h/Desktop/CPU_design/design/Mem.v,,blk_mem_gen_0,,,../../../../,,,,,
-C:/Users/h/Desktop/CPU_design/design/test_clk.v,1715159049,verilog,,,,test_clk,,,../../../../,,,,,
-C:/Users/h/Desktop/CPU_design/design/test_frame.v,1715157035,verilog,,C:/Users/h/Desktop/CPU_design/design/test_clk.v,,test_frame,,,../../../../,,,,,
+2018.2
+Jun 14 2018
+20:41:02
+C:/Users/hasaki/Desktop/CPU_design/design/ID.v,1715180167,verilog,,C:/Users/hasaki/Desktop/CPU_design/design/Mem.v,C:/Users/hasaki/Desktop/CPU_design/design/defines.v,ID,,,../../../../,,,,,
+C:/Users/hasaki/Desktop/CPU_design/design/Mem.v,1715179636,verilog,,C:/Users/hasaki/Desktop/CPU_design/design/PC.v,C:/Users/hasaki/Desktop/CPU_design/design/defines.v,Mem,,,../../../../,,,,,
+C:/Users/hasaki/Desktop/CPU_design/design/PC.v,1715179944,verilog,,C:/Users/hasaki/Desktop/CPU_design/design/test_frame.v,C:/Users/hasaki/Desktop/CPU_design/design/defines.v,pc_reg,,,../../../../,,,,,
+C:/Users/hasaki/Desktop/CPU_design/design/defines.v,1715173874,verilog,,,,,,,,,,,,
+C:/Users/hasaki/Desktop/CPU_design/design/design.sim/sim_1/behav/xsim/glbl.v,1715172380,verilog,,,,glbl,,,,,,,,
+C:/Users/hasaki/Desktop/CPU_design/design/design.srcs/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v,1715178062,verilog,,C:/Users/hasaki/Desktop/CPU_design/design/ID.v,,blk_mem_gen_0,,,../../../../,,,,,
+C:/Users/hasaki/Desktop/CPU_design/design/test_clk.v,1715172380,verilog,,,,test_clk,,,../../../../,,,,,
+C:/Users/hasaki/Desktop/CPU_design/design/test_frame.v,1715178768,verilog,,C:/Users/hasaki/Desktop/CPU_design/design/test_clk.v,,test_frame,,,../../../../,,,,,

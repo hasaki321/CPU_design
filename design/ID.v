@@ -2,15 +2,18 @@
 module ID (
     input [31:0] instr;
     input [31:0] pc;
-    input [6:0] op;
-    input [3:0] funct;
-    input [31:0] imm;
-    input [4:0] rs1_addr;
-    input [4:0] rs2_addr;
     
     output reg [31:0] rs1_data;
     output reg [31:0] rs2_data;
     output reg [31:0] rd_data;
+    output reg [3:0] funct;
+
+
+    output  reg                             branch,
+    output  reg                             memread,
+    output  reg                             memtoreg,
+    output  reg                             memwrite,
+    output  reg                             regwrite,
 );
 
 wire    [6:0]   opcode  =   instr[6:0] ;
@@ -20,7 +23,7 @@ wire    [4:0]   rs1     =   instr[19:15]    ;
 wire    [4:0]   rs2     =   instr[24:20]    ;
 wire    [6:0]   funct7  =   instr[31:25] ;
 
-assign funct = {funct7[5],funct3}
+
 
 always @(*) begin
     rs1_addr_o      =   `REG_ADDR_WIDTH'h0;
@@ -36,11 +39,13 @@ always @(*) begin
     memwrite        =   1'b0;
     regwrite        =   1'b0;
 
+    funct = {funct7[5],funct3};
+
     case(opcode) 
         `INSTR_TYPE_R:begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = rs2;
-                rs1_data_o = rs1_data_i;
+                rs1_data_o = rs1_data_i;    
                 rs2_data_o = rs2_data_i;
                 rd_addr_o  = rd;
                 //reg_wen    = 1'b1;

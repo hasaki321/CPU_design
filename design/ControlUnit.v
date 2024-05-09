@@ -1,4 +1,4 @@
-module test_frame (
+module ControlUnit (
     input clk,
     input reset
 );
@@ -19,7 +19,7 @@ wire [31:0] rd_data;
 
 
 // control signal
-wire [3:0] funct;    
+wire [2:0] funct;    
 wire [2:0] aluctr;
 wire branch;
 wire memread;
@@ -29,11 +29,9 @@ wire regwrite;
 wire immadd;
 
 
-
-
 initial begin
-    jump = 1'b0;
-    pc_imm = 32'b0;
+    assign jump = 1'b0;
+    assign pc_imm = 32'b0;
 end
 
 pc_reg pc_count(
@@ -79,5 +77,49 @@ RegFile regfiles(
     rs1_data,
     rs2_data
 );
+
+wire [31:0] input_1; 
+wire [31:0] input_2; 
+
+assign input_1 = rs1_data;
+assign input_2 = (immadd) ? imm : rs2_data;
+
+wire [31:0] alu_out;
+wire zero_flow;
+ALU alu(
+    input_1,
+    input_2,
+    aluctr,
+    branch,
+
+    alu_out,
+    zero_flow
+);
+
+assign rd_data = (regwrite) ? alu_out : 32'b0;
+
+always @(*) begin
+    jump = (zero_flow && branch) ? 1'b1 : 1'b0;
+    pc_imm = (jump) ? imm : 32'b0;
+end
+
+
+
+wire [31:0] mem_read_out;
+DataMem data_mem(
+    clk,
+    reset,
+    
+    funct,
+    alu_out,
+    rs2_data,
+
+    memread,
+    memwrite,
+
+    mem_read_out
+);
+
+assign rd_data = (memtoreg) ? mem_read_out : 32'b0;
 
 endmodule

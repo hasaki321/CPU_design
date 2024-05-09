@@ -12,25 +12,12 @@ module pc_reg (
 
     output reg [31:0] pc_current //当前pc�?
 );
-reg Re = 1'b1;
-reg We = 1'b0;
-reg [2:0] funct3 = 3'b010;
 
-reg [31:0] w_addr = 32'b0;
-reg [31:0] w_data = 32'b0;
-
-Mem instruc_menmory(
+InstrMem instruc_menmory(
     clk,
     reset,
     
-    Re,
-    We,
-    funct3,
-    
     pc_current,
-    w_addr,
-    w_data,
-
     instr
 );
 

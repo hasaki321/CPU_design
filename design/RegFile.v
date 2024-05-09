@@ -33,7 +33,7 @@ module RegFile(
                 regFiles[i] <= 32'b0;    
         end    
         else if(regWr == 1'b1) begin    
-            regFiles[rd_addr] <= rd_addr;    
+            regFiles[rd_addr] <= rd_data;    
         end    
     end    
             

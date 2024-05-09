@@ -9,7 +9,7 @@ module ID (
     output reg [4:0] rd_addr_o,
     output reg [31:0] imm,
 
-    output reg [3:0] funct,    
+    output reg [2:0] funct,    
     output reg [2:0] aluctr,
     output reg branch,
     output reg memread,
@@ -44,7 +44,7 @@ always @(*) begin
     
     aluctr = 3'b0;
 
-    funct = {funct7[5],funct3};
+    funct = funct3;
 
     case(opcode) 
         `INSTR_TYPE_R:begin

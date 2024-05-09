@@ -7,7 +7,7 @@ module test_clk (
 reg reset;
 reg clk;
 
-test_frame test(.clk(clk),.reset(reset));
+ControlUnit test(.clk(clk),.reset(reset));
 
 initial begin
 reset = 1'b1;

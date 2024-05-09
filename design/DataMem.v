@@ -1,15 +1,15 @@
 `include "defines.v"
-module Mem (
+module DataMem (
     input clk,
     input reset,
     
+    
+    input [2:0] funct,
+    input [31:0] addr,
+    input [31:0] w_data,
+
     input Re,
     input We,
-    input [2:0] funct3,
-    
-    input [31:0] r_addr,
-    input [31:0] w_addr,
-    input [31:0] w_data,
 
     output reg [31:0] read_data
 );
@@ -17,16 +17,15 @@ module Mem (
 wire [31:0] ram_data_o; 
 
 reg [31:0] ram_data_i = 32'b0; 
-wire [3:0] fucnt = {1'b0,funct3};
 
 blk_mem_gen_0 instruc_mem ( 
   .clka      (clk          ),            // input clka 
   .wea       (We          ),            // input [0 : 0] wea 
-  .addra     (w_addr[11:2]       ),            // input [8 : 0] addra 
+  .addra     (addr[11:2]       ),            // input [8 : 0] addra 
   .dina      (w_data       ),            // input [15 : 0] dina 
    .clkb     (clk          ),            // input clkb 
    .enb      (Re)          ,
-   .addrb    (r_addr[11:2]       ),            // input [8 : 0] addrb 
+   .addrb    (addr[11:2]       ),            // input [8 : 0] addrb 
    .doutb    (ram_data_o       )             // output [15 : 0] doutb 
   ); 
 
@@ -35,7 +34,7 @@ always @(*) begin
     
     case({Re,We})
         2'b10:begin 
-            case(fucnt)
+            case({1'b0,funct})
                 `L_BYTE:begin
                     read_data   =   {{24{ram_data_o[7]}},ram_data_o[7:0]};
                 end
@@ -54,7 +53,7 @@ always @(*) begin
             endcase
         end
         2'b01:begin
-            case(funct3)
+            case(funct)
                 `S_BYTE:begin 
                     ram_data_i    =   {{ram_data_o[31:8]},{w_data[7:0]}}   ;
                 end

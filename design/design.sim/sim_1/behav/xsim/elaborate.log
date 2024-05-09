@@ -17,6 +17,7 @@ Compiling module xil_defaultlib.blk_mem_gen_0
 Compiling module xil_defaultlib.Mem
 Compiling module xil_defaultlib.pc_reg
 Compiling module xil_defaultlib.ID
+Compiling module xil_defaultlib.RegFile
 Compiling module xil_defaultlib.test_frame
 Compiling module xil_defaultlib.test_clk
 Compiling module xil_defaultlib.glbl

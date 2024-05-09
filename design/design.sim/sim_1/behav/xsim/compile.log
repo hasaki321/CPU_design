@@ -6,6 +6,8 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/
 INFO: [VRFC 10-311] analyzing module Mem
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/PC.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pc_reg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/RegFile.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module RegFile
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/test_frame.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module test_frame
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/test_clk.v" into library xil_defaultlib

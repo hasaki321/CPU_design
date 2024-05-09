@@ -8,10 +8,15 @@ reg [31:0] pc_imm;
 
 wire [31:0] pc_current;
 wire [31:0] instr;
-wire [31:0] rs1_addr;
-wire [31:0] rs2_addr;
-wire [31:0] rd_addr;
+wire [4:0] rs1_addr;
+wire [4:0] rs2_addr;
+wire [4:0] rd_addr;
 wire [31:0] imm;
+
+wire [31:0] rs1_data;
+wire [31:0] rs2_data;
+wire [31:0] rd_data;
+
 
 // control signal
 wire [3:0] funct;    
@@ -21,6 +26,7 @@ wire memread;
 wire memtoreg;
 wire memwrite;
 wire regwrite;
+wire immadd;
 
 
 
@@ -54,7 +60,24 @@ ID instruction_decoder(
     memread,
     memtoreg,
     memwrite,
-    regwrite
+    regwrite,
+    immadd
+);
+
+assign rd_data = 5'b0;
+
+RegFile regfiles(
+    clk,
+    reset,
+    regwrite,
+     
+    rs1_addr,
+    rs2_addr,
+    rd_addr,
+    rd_data,
+
+    rs1_data,
+    rs2_data
 );
 
 endmodule

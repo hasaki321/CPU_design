@@ -4,6 +4,7 @@ verilog xil_defaultlib  --include "../../../../" \
 "../../../../ID.v" \
 "../../../../Mem.v" \
 "../../../../PC.v" \
+"../../../../RegFile.v" \
 "../../../../test_frame.v" \
 "../../../../test_clk.v" \
 

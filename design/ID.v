@@ -3,11 +3,10 @@ module ID (
     input [31:0] instr,
     input [31:0] pc,
     
-    output reg [31:0] rs1_addr_o,
-    output reg [31:0] rs2_addr_o,
-    // output reg [31:0] rs1_data_o,
-    // output reg [31:0] rs2_data_o,
-    output reg [31:0] rd_addr_o,
+    output reg [4:0] rs1_addr_o,
+    output reg [4:0] rs2_addr_o,
+
+    output reg [4:0] rd_addr_o,
     output reg [31:0] imm,
 
     output reg [3:0] funct,    
@@ -16,7 +15,8 @@ module ID (
     output reg memread,
     output reg memtoreg,
     output reg memwrite,
-    output reg regwrite
+    output reg regwrite,
+    output reg immadd
 );
 
 wire    [6:0]   opcode  =   instr[6:0] ;
@@ -29,16 +29,19 @@ wire    [6:0]   funct7  =   instr[31:25] ;
 
 
 always @(*) begin
-    rs1_addr_o      =   `REG_ADDR_WIDTH'h0;
-    rs2_addr_o      =   `REG_ADDR_WIDTH'h0;
-    // rs1_data_o      =   `REG_WIDTH'h0;
-    // rs2_data_o      =   `REG_WIDTH'h0;
-    rd_addr_o       =   `REG_ADDR_WIDTH'h0;
-    //control signal
+    rs1_addr_o      =   5'h0;
+    rs2_addr_o      =   5'h0;
+
+    rd_addr_o       =   5'h0;
+
+    imm = 32'b0;
+
+    immadd = 1'b0;
     memread         =   1'b0;
     memtoreg        =   1'b0;
     memwrite        =   1'b0;
     regwrite        =   1'b0;
+    
     aluctr = 3'b0;
 
     funct = {funct7[5],funct3};
@@ -47,61 +50,44 @@ always @(*) begin
         `INSTR_TYPE_R:begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = rs2;
-                // rs1_data_o = rs1_data_i;    
-                // rs2_data_o = rs2_data_i;
                 rd_addr_o  = rd;
-                //reg_wen    = 1'b1;
-                branch     = 1'b0;
-                memread    = 1'b0;
-                memtoreg   = 1'b0;
-                memwrite   = 1'b0;
+
                 regwrite   = 1'b1;
+
             end
             `INSTR_TYPE_I:begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = `REG_ADDR_WIDTH'h0;
-                // rs1_data_o = rs1_data_i;
-                // rs2_data_o = `REG_WIDTH'h0;
+
                 rd_addr_o  = rd;
-                //reg_wen    = 1'b1;
-                branch     = 1'b0;
-                memread    = 1'b0;
-                memtoreg   = 1'b0;
-                memwrite   = 1'b0;
+                imm[11:0] = {funct7,rs2};
+
                 regwrite   = 1'b1;
+                immadd = 1'b1;
             end
             `INSTR_TYPE_B:begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = rs2;
-                // rs1_data_o = rs1_data_i;
-                // rs2_data_o = rs2_data_i;
-                rd_addr_o  = 5'b0;
-                //reg_wen    = 1'b1;
+
+                imm[11:0] = {funct7,rd};
+
                 branch     = 1'b1;
-                memread    = 1'b0;
-                memtoreg   = 1'b0;
-                memwrite   = 1'b0;
-                regwrite   = 1'b0;
             end 
             `INSTR_TYPE_J:begin
                 rs1_addr_o = `REG_ADDR_WIDTH'h0;
                 rs2_addr_o = `REG_ADDR_WIDTH'h0;
-                // rs1_data_o = `REG_WIDTH'h0;
-                // rs2_data_o = `REG_WIDTH'h0;
+
                 rd_addr_o  = rd;
-                //reg_wen    = 1'b1;
+                imm[19:0] = {funct7,rs2,rs1,funct3};
+
                 branch     = 1'b1;
-                memread    = 1'b0;
-                memtoreg   = 1'b0;
-                memwrite   = 1'b0;
                 regwrite   = 1'b1;
                 //jump       = 1'b1;
             end
             `INSTR_TYPE_JR:begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = `REG_ADDR_WIDTH'h0;
-                // rs1_data_o = rs1_data_i;
-                // rs2_data_o = `REG_WIDTH'h0;
+
                 rd_addr_o  = rd;
                 //reg_wen    = 1'b1;
                 branch     = 1'b1;
@@ -113,28 +99,24 @@ always @(*) begin
             `INSTR_TYPE_IL:begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = `REG_ADDR_WIDTH'h0;
-                // rs1_data_o = rs1_data_i;
-                // rs2_data_o = `REG_WIDTH'h0;
+
                 rd_addr_o  = rd;
-                //reg_wen    = 1'b1;
-                branch     = 1'b0;
+                imm[11:0] = {funct7,rs2};
+
                 memread    = 1'b1;
                 memtoreg   = 1'b1;
-                memwrite   = 1'b0;
                 regwrite   = 1'b1;
             end
             `INSTR_TYPE_S:begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = rs2;
-                // rs1_data_o = rs1_data_i;
-                // rs2_data_o = rs2_data_i;
+
                 rd_addr_o  = rd;
-                //reg_wen    = 1'b1;
-                branch     = 1'b0;
-                memread    = 1'b0;
-                memtoreg   = 1'b0;
+                
+                imm[11:0] = {funct7,rd};
+
                 memwrite   = 1'b1;
-                regwrite   = 1'b0;
+                immadd = 1'b1;
             end
         endcase 
 

@@ -16,7 +16,8 @@ module ID (
     output reg memtoreg,
     output reg memwrite,
     output reg regwrite,
-    output reg immadd
+    output reg immadd,
+    output reg jump
 );
 
 wire    [6:0]   opcode  =   instr[6:0] ;
@@ -41,8 +42,9 @@ always @(*) begin
     memtoreg        =   1'b0;
     memwrite        =   1'b0;
     regwrite        =   1'b0;
+    jump            =   1'b0;
     
-    aluctr = 3'b0;
+    aluctr = 3'h0;
 
     funct = funct3;
 
@@ -53,7 +55,20 @@ always @(*) begin
                 rd_addr_o  = rd;
 
                 regwrite   = 1'b1;
-
+                case (funct3)
+                    3'h0: begin
+                        aluctr = (funct7[5]) ? 3'h1 : 3'h2;
+                    end
+                    3'h6: begin
+                        aluctr = 3'h3;
+                    end
+                    3'h7: begin
+                        aluctr = 3'h4;
+                    end
+                    3'h1: begin
+                        aluctr = 3'h5;
+                    end
+                endcase
             end
             `INSTR_TYPE_I:begin
                 rs1_addr_o = rs1;
@@ -62,6 +77,7 @@ always @(*) begin
                 rd_addr_o  = rd;
                 imm[11:0] = {funct7,rs2};
 
+                aluctr = 3'h1 ; //只有addi所以只有一种情况
                 regwrite   = 1'b1;
                 immadd = 1'b1;
             end
@@ -69,32 +85,32 @@ always @(*) begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = rs2;
 
-                imm[11:0] = {funct7,rd};
+                imm[10:0] = {funct7[5:0],rd};
+                imm[12] = funct7[6];
 
                 branch     = 1'b1;
+                case (funct3)
+                    3'h0: begin
+                        aluctr = 3'h6;
+                    end
+                    3'h4: begin
+                        aluctr = 3'h7;
+                    end
+                endcase
             end 
             `INSTR_TYPE_J:begin
                 rs1_addr_o = `REG_ADDR_WIDTH'h0;
                 rs2_addr_o = `REG_ADDR_WIDTH'h0;
 
                 rd_addr_o  = rd;
-                imm[19:0] = {funct7,rs2,rs1,funct3};
+                imm[19:12] = {rs1,funct3};
+                imm[11] = rs2[0];
+                imm[10:1] = {funct7[5:0],rs2[4:1]};
+                imm[20] = funct7[6];
 
-                branch     = 1'b1;
+                // branch     = 1'b1;
                 regwrite   = 1'b1;
-                //jump       = 1'b1;
-            end
-            `INSTR_TYPE_JR:begin
-                rs1_addr_o = rs1;
-                rs2_addr_o = `REG_ADDR_WIDTH'h0;
-
-                rd_addr_o  = rd;
-                //reg_wen    = 1'b1;
-                branch     = 1'b1;
-                memread    = 1'b0;
-                memtoreg   = 1'b0;
-                memwrite   = 1'b0;
-                regwrite   = 1'b1;
+                jump       = 1'b1;
             end
             `INSTR_TYPE_IL:begin
                 rs1_addr_o = rs1;
@@ -103,6 +119,7 @@ always @(*) begin
                 rd_addr_o  = rd;
                 imm[11:0] = {funct7,rs2};
 
+                aluctr = 3'h1;
                 memread    = 1'b1;
                 memtoreg   = 1'b1;
                 regwrite   = 1'b1;
@@ -115,6 +132,7 @@ always @(*) begin
                 
                 imm[11:0] = {funct7,rd};
 
+                aluctr = 3'h1;
                 memwrite   = 1'b1;
                 immadd = 1'b1;
             end

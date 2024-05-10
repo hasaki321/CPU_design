@@ -24,11 +24,13 @@ InstrMem instruc_menmory(
 always @(posedge clk) begin // 在周期的上升边或下降边沿
     if (reset)
         pc_current <= 32'b0;
-    else if (jump)
-        pc_current <= pc_imm;
-    else
+    else if (jump) begin
+        pc_current <= pc_current + pc_imm;
+    end
+    else begin
         pc_current <= pc_current + 32'h4;
-    // instr <= out_data;
+    end
+        
 end
 
 endmodule

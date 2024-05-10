@@ -1,5 +1,6 @@
 module ControlUnit (
     input clk,
+    input clk_mem,
     input reset
 );
     
@@ -29,6 +30,7 @@ wire regwrite;
 wire immadd;
 
 
+
 initial begin
     assign jump = 1'b0;
     assign pc_imm = 32'b0;
@@ -43,6 +45,7 @@ pc_reg pc_count(
     pc_current
 );
 
+wire jump_ctr;
 ID instruction_decoder(
     instr,
     pc_current,
@@ -59,13 +62,14 @@ ID instruction_decoder(
     memtoreg,
     memwrite,
     regwrite,
-    immadd
+    immadd,
+    jump_ctr
 );
 
 assign rd_data = 5'b0;
 
 RegFile regfiles(
-    clk,
+    clk_mem,
     reset,
     regwrite,
      
@@ -85,7 +89,7 @@ assign input_1 = rs1_data;
 assign input_2 = (immadd) ? imm : rs2_data;
 
 wire [31:0] alu_out;
-wire zero_flow;
+
 ALU alu(
     input_1,
     input_2,
@@ -93,21 +97,23 @@ ALU alu(
     branch,
 
     alu_out,
-    zero_flow
+    jump_ctr
 );
 
 assign rd_data = (regwrite) ? alu_out : 32'b0;
 
 always @(*) begin
-    jump = (zero_flow && branch) ? 1'b1 : 1'b0;
-    pc_imm = (jump) ? imm : 32'b0;
+    jump <= jump_ctr;
+    if (jump_ctr==1'b1) begin
+        pc_imm <= imm;
+    end
 end
 
 
 
 wire [31:0] mem_read_out;
 DataMem data_mem(
-    clk,
+    clk_mem,
     reset,
     
     funct,

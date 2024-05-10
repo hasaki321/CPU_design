@@ -2,7 +2,8 @@ module RegFile(
     input clk,    
     input reset,
 
-    input regWr,  
+    input regWr,
+    input memtoreg,
 
     input [4:0] rs1_addr,    
     input [4:0] rs2_addr, 
@@ -27,14 +28,16 @@ module RegFile(
     assign rs1_data = regFiles[rs1_addr];   
     assign rs2_data = regFiles[rs2_addr];  
         
-    always @ (negedge clk) begin
+    always @ (posedge clk) begin
         if (reset == 1'b1) begin    
             for(i=1;i<32;i=i+1)    
                 regFiles[i] <= 32'b0;    
         end    
-        else if(regWr == 1'b1) begin    
-            regFiles[rd_addr] <= rd_data;    
-        end    
     end    
+    always @ (negedge clk) begin
+        if(regWr | memtoreg ) begin    
+            regFiles[rd_addr] <= rd_data;    
+        end
+    end
             
 endmodule  

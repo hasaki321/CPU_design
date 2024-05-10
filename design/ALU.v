@@ -4,13 +4,13 @@ module ALU (
     input [2:0] aluctr,
     input branch,
 
-    output reg [31:0] alu_out,
-    output reg zero_flow
+    output [31:0] alu_out,
+    output jump
 );
 
-initial begin
-     alu_out = 32'b0;
-     zero_flow = 1'b0;
-end
+assign jump = 32'b0;
+
+assign alu_out = 32'b0;
+
     
 endmodule

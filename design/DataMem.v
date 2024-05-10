@@ -16,16 +16,17 @@ module DataMem (
 
 wire [31:0] ram_data_o; 
 
-reg [31:0] ram_data_i = 32'b0; 
+reg [31:0] write_data = 32'b0; 
 
-blk_mem_gen_0 instruc_mem ( 
+blk_mem_gen_1 data_mem ( 
   .clka      (clk          ),            // input clka 
   .wea       (We          ),            // input [0 : 0] wea 
-  .addra     (addr[11:2]       ),            // input [8 : 0] addra 
-  .dina      (w_data       ),            // input [15 : 0] dina 
+  .addra     (addr[9:0]       ),            // input [8 : 0] addra 
+  .dina      (write_data       ),            // input [15 : 0] dina 
+
    .clkb     (clk          ),            // input clkb 
    .enb      (Re)          ,
-   .addrb    (addr[11:2]       ),            // input [8 : 0] addrb 
+   .addrb    (addr[9:0]       ),            // input [8 : 0] addrb 
    .doutb    (ram_data_o       )             // output [15 : 0] doutb 
   ); 
 
@@ -55,13 +56,13 @@ always @(*) begin
         2'b01:begin
             case(funct)
                 `S_BYTE:begin 
-                    ram_data_i    =   {{ram_data_o[31:8]},{w_data[7:0]}}   ;
+                    write_data    =   {{ram_data_o[31:8]},{w_data[7:0]}}   ;
                 end
                 `S_HALF:begin 
-                    ram_data_i    =   {{ram_data_o[31:16]},{w_data[15:0]}}   ;
+                    write_data    =   {{ram_data_o[31:16]},{w_data[15:0]}}   ;
                 end 
                 `S_WORD:begin 
-                    ram_data_i    =   w_data[31:0]   ;
+                    write_data    =   w_data[31:0]   ;
                 end
             endcase 
         end    

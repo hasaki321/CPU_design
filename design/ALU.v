@@ -8,7 +8,7 @@ module ALU (
     output jump
 );
 
-assign jump = 32'b0;
+assign jump = 0;
 
 assign alu_out = 32'b0;
 

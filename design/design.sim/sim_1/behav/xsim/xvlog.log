@@ -14,6 +14,8 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/
 INFO: [VRFC 10-311] analyzing module InstrMem
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/PC.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pc_reg
+WARNING: [VRFC 10-2292] extra semicolon is not allowed here in this dialect. Use SystemVerilog mode [C:/Users/hasaki/Desktop/CPU_design/design/PC.v:16]
+WARNING: [VRFC 10-2292] extra semicolon is not allowed here in this dialect. Use SystemVerilog mode [C:/Users/hasaki/Desktop/CPU_design/design/PC.v:27]
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/RegFile.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RegFile
 INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/test_clk.v" into library xil_defaultlib

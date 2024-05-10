@@ -1,7 +1,6 @@
 `include "defines.v"
 module ID (
     input [31:0] instr,
-    input [31:0] pc,
     
     output reg [4:0] rs1_addr_o,
     output reg [4:0] rs2_addr_o,

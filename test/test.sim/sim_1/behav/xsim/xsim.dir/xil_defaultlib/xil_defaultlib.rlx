@@ -2,6 +2,7 @@
 2018.2
 Jun 14 2018
 20:41:02
-N:/CCP_design/test/test.sim/sim_1/behav/xsim/glbl.v,1529022456,verilog,,,,glbl,,,,,,,,
-N:/CCP_design/test/test.srcs/sim_1/new/test.v,1714991828,verilog,,,,test,,,,,,,,
-N:/CCP_design/test/test.srcs/sources_1/new/test_gate.v,1714991012,verilog,,N:/CCP_design/test/test.srcs/sim_1/new/test.v,,test_gate,,,,,,,,
+C:/Users/hasaki/Desktop/CPU_design/test/clk.v,1715343509,verilog,,,,test_clk,,,,,,,,
+C:/Users/hasaki/Desktop/CPU_design/test/test.sim/sim_1/behav/xsim/glbl.v,1715077953,verilog,,,,glbl,,,,,,,,
+C:/Users/hasaki/Desktop/CPU_design/test/test.srcs/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v,1715342991,verilog,,C:/Users/hasaki/Desktop/CPU_design/test/test.v,,blk_mem_gen_0,,,,,,,,
+C:/Users/hasaki/Desktop/CPU_design/test/test.v,1715343859,verilog,,C:/Users/hasaki/Desktop/CPU_design/test/clk.v,,test,,,,,,,,

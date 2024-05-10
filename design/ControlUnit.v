@@ -32,25 +32,23 @@ wire immadd;
 
 
 
-initial begin
-    assign jump = 1'b0;
-    assign pc_imm = 32'b0;
-    // assign rd_data = 32'b0;
-end
+// initial begin
+//     assign jump = 1'b0;
+//     assign pc_imm = 32'b0;
+//     // assign rd_data = 32'b0;
+// end
 
 pc_reg pc_count(
     clk,
     reset,
     jump,
     pc_imm,
-    instr,
-    pc_current
+    instr
 );
 
-wire jump_ctr;
+wire jump_ctr_id;
 ID instruction_decoder(
     instr,
-    pc_current,
 
     rs1_addr,
     rs2_addr,
@@ -65,7 +63,7 @@ ID instruction_decoder(
     memwrite,
     regwrite,
     immadd,
-    jump_ctr
+    jump_ctr_id
 );
 
 RegFile regfiles(
@@ -91,6 +89,7 @@ assign input_2 = (immadd) ? imm : rs2_data;
 
 wire [31:0] alu_out;
 
+wire jump_ctr_alu;
 ALU alu(
     input_1,
     input_2,
@@ -98,14 +97,12 @@ ALU alu(
     branch,
 
     alu_out,
-    jump_ctr
+    jump_ctr_alu
 );
 
 always @(*) begin
-    jump <= jump_ctr;
-    if (jump_ctr==1'b1) begin
-        pc_imm <= imm;
-    end
+    jump = jump_ctr_id || jump_ctr_alu;
+    pc_imm = jump?imm:32'b0;
 end
 
 

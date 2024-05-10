@@ -42,6 +42,7 @@ always @(*) begin
     memtoreg        =   1'b0;
     memwrite        =   1'b0;
     regwrite        =   1'b0;
+    branch          =   1'b0;
     jump            =   1'b0;
     
     aluctr = 3'h0;
@@ -57,7 +58,7 @@ always @(*) begin
                 regwrite   = 1'b1;
                 case (funct3)
                     3'h0: begin
-                        aluctr = (funct7[5]) ? 3'h1 : 3'h2;
+                        aluctr = (funct7[5]) ? 3'h2 : 3'h1;
                     end
                     3'h6: begin
                         aluctr = 3'h3;
@@ -122,7 +123,7 @@ always @(*) begin
                 aluctr = 3'h1;
                 memread    = 1'b1;
                 memtoreg   = 1'b1;
-                regwrite   = 1'b1;
+                immadd = 1'b1;
             end
             `INSTR_TYPE_S:begin
                 rs1_addr_o = rs1;

@@ -21,11 +21,12 @@ reg [31:0] write_data = 32'b0;
 blk_mem_gen_1 data_mem ( 
   .clka      (clk          ),            // input clka 
   .wea       (We          ),            // input [0 : 0] wea 
-  .addra     (addr[11:2]       ),            // input [8 : 0] addra 
+  .addra     (addr[9:0]       ),            // input [8 : 0] addra 
   .dina      (write_data       ),            // input [15 : 0] dina 
+
    .clkb     (clk          ),            // input clkb 
-   .ena      (Re)          ,
-   .addrb    (addr[11:2]       ),            // input [8 : 0] addrb 
+   .enb      (Re)          ,
+   .addrb    (addr[9:0]       ),            // input [8 : 0] addrb 
    .doutb    (ram_data_o       )             // output [15 : 0] doutb 
   ); 
 

@@ -14,11 +14,14 @@ initial begin
 reset = 1'b1;
 clk = 1'b1;
 clk_mem = 1'b1;
-#20 reset = 1'b0;
+#1 reset = 1'b0;
 #1000 reset = 1'b1;
 end 
 
-always #15 clk =~clk;
-always #5 clk_mem =~clk_mem;
+always #0.5 clk =~clk;
+always @(posedge clk) begin
+    #0.2 clk_mem = 1'b1;
+    #0.2 clk_mem = 1'b0;
+end
     
 endmodule

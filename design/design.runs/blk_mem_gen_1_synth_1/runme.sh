@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='C:/Users/h/Desktop/CPU_design/design/design.runs/blk_mem_gen_1_synth_1'
+HD_PWD='C:/Users/hasaki/Desktop/CPU_design/design/design.runs/blk_mem_gen_1_synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

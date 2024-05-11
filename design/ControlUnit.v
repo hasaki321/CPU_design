@@ -7,6 +7,7 @@ module ControlUnit (
 reg jump;
 reg [31:0] pc_imm;
 
+wire [31:0] current_pc;
 wire [31:0] rd_data;
 
 wire [31:0] pc_current;
@@ -32,23 +33,25 @@ wire immadd;
 
 
 
-// initial begin
-//     assign jump = 1'b0;
-//     assign pc_imm = 32'b0;
-//     // assign rd_data = 32'b0;
-// end
+initial begin
+    assign jump = 1'b0;
+    assign pc_imm = 32'b0;
+    // assign rd_data = 32'b0;
+end
 
 pc_reg pc_count(
     clk,
     reset,
     jump,
     pc_imm,
-    instr
+    instr,
+    current_pc
 );
 
-wire jump_ctr_id;
+wire jumpi_ctr_id;
 ID instruction_decoder(
     instr,
+    current_pc,
 
     rs1_addr,
     rs2_addr,
@@ -63,7 +66,7 @@ ID instruction_decoder(
     memwrite,
     regwrite,
     immadd,
-    jump_ctr_id
+    jumpi_ctr_id
 );
 
 RegFile regfiles(
@@ -94,15 +97,17 @@ ALU alu(
     input_1,
     input_2,
     aluctr,
+    funct,
+    current_pc,
     branch,
+    jumpi_ctr_id,
 
     alu_out,
     jump_ctr_alu
 );
 
 always @(*) begin
-    jump = jump_ctr_id || jump_ctr_alu;
-    pc_imm = jump?imm:32'b0;
+    pc_imm = jump_ctr_alu?imm:32'b0;
 end
 
 

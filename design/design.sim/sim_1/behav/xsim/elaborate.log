@@ -3,6 +3,7 @@ Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
 Running: D:/Vivado2018.2/Vivado/2018.2/bin/unwrapped/win64.o/xelab.exe -wto 816437c11d49418181db801e914bc06b --incr --debug typical --relax --mt 2 -L blk_mem_gen_v8_4_1 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot test_clk_behav xil_defaultlib.test_clk xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
+WARNING: [VRFC 10-278] actual bit length 3 differs from formal bit length 4 for port aluctr [C:/Users/hasaki/Desktop/CPU_design/design/ControlUnit.v:62]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis

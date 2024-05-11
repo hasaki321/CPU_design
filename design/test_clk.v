@@ -18,10 +18,10 @@ clk_mem = 1'b1;
 #100 reset = 1'b1;
 end 
 
-always #0.125 clk =~clk;
+always #0.5 clk =~clk;
 always @(posedge clk) begin
-    #0.12 clk_mem = 1'b1;
-    #0.12 clk_mem = 1'b0;
+    #0.4 clk_mem = 1'b1;
+    #0.4 clk_mem = 1'b0;
 end
     
 endmodule

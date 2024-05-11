@@ -8,9 +8,10 @@ module pc_reg (
 
     input [31:0] pc_imm, //32位立即数
 
-    output [31:0] instr //指令寄存�??
+    output [31:0] instr, //指令寄存�??
+    output reg [31:0] pc
 );
-reg [31:0] pc;
+
 initial begin
     pc = 32'b0;
 end;

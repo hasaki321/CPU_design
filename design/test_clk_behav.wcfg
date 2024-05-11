@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="test_clk_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="test_clk" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="819220000fs"></ZoomStartTime>
+      <ZoomEndTime time="823699027fs"></ZoomEndTime>
+      <Cursor1Time time="406044000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="114"></NameColumnWidth>
+      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="20" />
+   <wave_markers>
+      <marker time="31294000" label="" />
+      <marker time="34304000" label="" />
+      <marker time="35282000" label="" />
+      <marker time="42317000" label="" />
+      <marker time="55256000" label="" />
+      <marker time="62317000" label="" />
+      <marker time="65327000" label="" />
+      <marker time="69273000" label="" />
+      <marker time="71272000" label="" />
+      <marker time="77292000" label="" />
+      <marker time="81292000" label="" />
+      <marker time="83238000" label="" />
+      <marker time="89289000" label="" />
+      <marker time="113281000" label="" />
+      <marker time="117250000" label="" />
+      <marker time="125319000" label="" />
+      <marker time="131277000" label="" />
+      <marker time="188137000" label="" />
+   </wave_markers>
+   <wvobject fp_name="/test_clk/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/clk_mem" type="logic">
+      <obj_property name="ElementShortName">clk_mem</obj_property>
+      <obj_property name="ObjectShortName">clk_mem</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/pc_count/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/pc_count/instr" type="array">
+      <obj_property name="ElementShortName">instr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/pc_imm" type="array">
+      <obj_property name="ElementShortName">pc_imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/rs1_addr" type="array">
+      <obj_property name="ElementShortName">rs1_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1_addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/rs2_addr" type="array">
+      <obj_property name="ElementShortName">rs2_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/rd_addr" type="array">
+      <obj_property name="ElementShortName">rd_addr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_addr[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/imm" type="array">
+      <obj_property name="ElementShortName">imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/rs1_data" type="array">
+      <obj_property name="ElementShortName">rs1_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs1_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/rs2_data" type="array">
+      <obj_property name="ElementShortName">rs2_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rs2_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/alu/pc" type="array">
+      <obj_property name="ElementShortName">pc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/alu/jumpi" type="array">
+      <obj_property name="ElementShortName">jumpi[1:0]</obj_property>
+      <obj_property name="ObjectShortName">jumpi[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/alu/branch" type="logic">
+      <obj_property name="ElementShortName">branch</obj_property>
+      <obj_property name="ObjectShortName">branch</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/alu/input_1" type="array">
+      <obj_property name="ElementShortName">input_1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">input_1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/alu/input_2" type="array">
+      <obj_property name="ElementShortName">input_2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">input_2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/alu/alu_out" type="array">
+      <obj_property name="ElementShortName">alu_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_out[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/alu/pc_out" type="array">
+      <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/alu/jump" type="logic">
+      <obj_property name="ElementShortName">jump</obj_property>
+      <obj_property name="ObjectShortName">jump</obj_property>
+   </wvobject>
+</wave_config>

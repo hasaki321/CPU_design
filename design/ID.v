@@ -10,14 +10,14 @@ module ID (
     output reg [31:0] imm,
 
     output reg [2:0] funct,    
-    output reg [3:0] aluctr,
+    output reg [2:0] aluctr,
     output reg branch,
     output reg memread,
     output reg memtoreg,
     output reg memwrite,
     output reg regwrite,
     output reg immadd,
-    output reg jumpi,
+    output reg [1:0] jumpi,
     output reg alului
 );
 
@@ -79,7 +79,7 @@ always @(*) begin
                 rs2_addr_o = `REG_ADDR_WIDTH'h0;
 
                 rd_addr_o  = rd;
-                imm[11:0] = {funct7,rs2};
+                imm = {{20{instr[31]}},instr[31:20]};
                 case (funct3)
                     3'h0: begin
                         aluctr = 3'h1;
@@ -95,8 +95,7 @@ always @(*) begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = rs2;
 
-                imm[10:0] = {funct7[5:0],rd};
-                imm[12] = funct7[6];
+                imm = {{19{instr[31]}},instr[31],instr[7],instr[30:25],instr[11:8],1'b0};
 
                 branch     = 1'b1;
             end 
@@ -105,10 +104,7 @@ always @(*) begin
                 rs2_addr_o = `REG_ADDR_WIDTH'h0;
 
                 rd_addr_o  = rd;
-                imm[19:12] = {rs1,funct3};
-                imm[11] = rs2[0];
-                imm[10:1] = {funct7[5:0],rs2[4:1]};
-                imm[20] = funct7[6];
+                imm = {{11{instr[31]}},instr[31],instr[19:12],instr[20],instr[30:21],1'b0};
 
                 // branch     = 1'b1;
                 regwrite   = 1'b1;
@@ -122,7 +118,7 @@ always @(*) begin
 
                 regwrite   = 1'b1;
                 jumpi       = 2'b10;
-                imm[11:0]        = {funct7,rs2};
+                imm= {{20{instr[31]}},instr[31:20]};
             end
             `INSTR_TYPE_U:begin
                 rs1_addr_o = `REG_ADDR_WIDTH'h0;
@@ -131,7 +127,8 @@ always @(*) begin
 
                 regwrite   = 1'b1;
                 aluctr = 3'h6 ;
-                imm[31:12]        = {funct7,rs2,rs1,funct3};
+                immadd = 1'b1;
+                imm={instr[31:12],12'b0};
             end
             `INSTR_TYPE_UPC:begin
                 rs1_addr_o = `REG_ADDR_WIDTH'h0;
@@ -140,14 +137,15 @@ always @(*) begin
 
                 regwrite   = 1'b1;
                 aluctr      = 3'h7;
-                imm[31:12]        = {funct7,rs2,rs1,funct3};
+                immadd = 1'b1;
+                imm       = {instr[31:12],12'b0};
             end
             `INSTR_TYPE_IL:begin
                 rs1_addr_o = rs1;
                 rs2_addr_o = `REG_ADDR_WIDTH'h0;
 
                 rd_addr_o  = rd;
-                imm[11:0] = {funct7,rs2};
+                imm       = {{20{instr[31]}},instr[31:20]};
 
                 aluctr = 3'h1;
                 memread    = 1'b1;
@@ -160,7 +158,7 @@ always @(*) begin
 
                 rd_addr_o  = rd;
                 
-                imm[11:0] = {funct7,rd};
+                imm       = {{20{instr[31]}},instr[31:25],instr[11:7]};
 
                 aluctr = 3'h1;
                 memwrite   = 1'b1;

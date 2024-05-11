@@ -15,7 +15,7 @@ reset = 1'b1;
 clk = 1'b1;
 clk_mem = 1'b1;
 #0.5 reset = 1'b0;
-#100 reset = 1'b1;
+#1000 reset = 1'b1;
 end 
 
 always #0.5 clk =~clk;

@@ -18,17 +18,21 @@ end;
 
 always @(posedge clk) begin // 在周期的上升边或下降边沿
     if (reset)
-        pc <= 32'b0;
+        pc = 32'b0;
     else if (jump) begin
-        pc <= pc + pc_imm;
+        pc = pc_imm;
     end
     else begin
-        pc <= pc + 32'h4;
+        pc = pc + 32'h4;
     end
 end;
+reg imem_clk;
 
+always @(posedge clk or negedge clk) begin
+    imem_clk <= #0.05 clk; // 添加 1 个时钟周期的延迟
+end
 InstrMem instruc_menmory(
-    clk,
+    imem_clk,
     reset,
     
     pc,

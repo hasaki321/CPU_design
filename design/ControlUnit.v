@@ -4,8 +4,8 @@ module ControlUnit (
     input reset
 );
     
-reg jump;
-reg [31:0] pc_imm;
+wire jump;
+wire [31:0] pc_imm;
 
 wire [31:0] current_pc;
 wire [31:0] rd_data;
@@ -34,9 +34,8 @@ wire immadd;
 
 
 initial begin
-    assign jump = 1'b0;
-    assign pc_imm = 32'b0;
-    // assign rd_data = 32'b0;
+    // assign jump = 1'b0;
+    // assign pc_imm = 32'b0;
 end
 
 pc_reg pc_count(
@@ -48,7 +47,7 @@ pc_reg pc_count(
     current_pc
 );
 
-wire jumpi_ctr_id;
+wire [1:0] jumpi_ctr_id;
 ID instruction_decoder(
     instr,
     current_pc,
@@ -91,8 +90,10 @@ assign input_1 = rs1_data;
 assign input_2 = (immadd) ? imm : rs2_data;
 
 wire [31:0] alu_out;
+wire [31:0] pc_out;
 
 wire jump_ctr_alu;
+
 ALU alu(
     input_1,
     input_2,
@@ -103,13 +104,10 @@ ALU alu(
     jumpi_ctr_id,
 
     alu_out,
-    jump_ctr_alu
+    pc_out,
+    jump
 );
-
-always @(*) begin
-    pc_imm = jump_ctr_alu?imm:32'b0;
-end
-
+assign pc_imm = pc_out + imm;
 
 
 wire [31:0] mem_read_out;

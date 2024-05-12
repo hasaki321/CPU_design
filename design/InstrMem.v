@@ -7,12 +7,13 @@ module InstrMem (
 
     output [31:0] instr
 );
-
-wire [31:0] ram_data_o; 
+// #0.1
+wire [9:0] read_addr; 
+assign read_addr = r_addr[11:2];
 
 blk_mem_gen_0 instruc_mem ( 
   .clka      (clk          ),            // input clka 
-  .addra     (r_addr[11:2]      ),            // input [8 : 0] addra 
+  .addra     (read_addr      ),            // input [8 : 0] addra 
   .douta (instr)
 );
 endmodule

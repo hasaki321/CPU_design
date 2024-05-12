@@ -14,11 +14,11 @@ initial begin
 reset = 1'b1;
 clk = 1'b1;
 clk_mem = 1'b1;
-#0.15 reset = 1'b0;
+#0.25 reset = 1'b0;
 #1000 reset = 1'b1;
 end 
 
-always #0.15 clk =~clk;
+always #0.125 clk =~clk;
 always @(posedge clk) begin
     #0.12 clk_mem = 1'b1;
     #0.12 clk_mem = 1'b0;

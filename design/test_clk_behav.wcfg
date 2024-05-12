@@ -12,14 +12,14 @@
    </db_ref_list>
    <zoom_setting>
       <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="2826001fs"></ZoomEndTime>
-      <Cursor1Time time="2294000fs"></Cursor1Time>
+      <ZoomEndTime time="1602001fs"></ZoomEndTime>
+      <Cursor1Time time="572000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="114"></NameColumnWidth>
-      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+      <NameColumnWidth column_width="131"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="19" />
+   <WVObjectSize size="29" />
    <wvobject fp_name="/test_clk/reset" type="logic">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -47,6 +47,10 @@
       <obj_property name="ElementShortName">pc_imm[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc_imm[31:0]</obj_property>
    </wvobject>
+   <wvobject fp_name="/test_clk/test/instruction_decoder/imm" type="array">
+      <obj_property name="ElementShortName">imm[31:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/test_clk/test/rs1_addr" type="array">
       <obj_property name="ElementShortName">rs1_addr[4:0]</obj_property>
       <obj_property name="ObjectShortName">rs1_addr[4:0]</obj_property>
@@ -62,6 +66,7 @@
    <wvobject fp_name="/test_clk/test/imm" type="array">
       <obj_property name="ElementShortName">imm[31:0]</obj_property>
       <obj_property name="ObjectShortName">imm[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_clk/test/rs1_data" type="array">
       <obj_property name="ElementShortName">rs1_data[31:0]</obj_property>
@@ -70,6 +75,11 @@
    <wvobject fp_name="/test_clk/test/rs2_data" type="array">
       <obj_property name="ElementShortName">rs2_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">rs2_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/rd_data" type="array">
+      <obj_property name="ElementShortName">rd_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_data[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_clk/test/alu/jumpi" type="array">
       <obj_property name="ElementShortName">jumpi[1:0]</obj_property>
@@ -90,7 +100,7 @@
    <wvobject fp_name="/test_clk/test/alu/alu_out" type="array">
       <obj_property name="ElementShortName">alu_out[31:0]</obj_property>
       <obj_property name="ObjectShortName">alu_out[31:0]</obj_property>
-      <obj_property name="Radix">BINARYRADIX</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/test_clk/test/alu/pc_out" type="array">
       <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
@@ -99,5 +109,37 @@
    <wvobject fp_name="/test_clk/test/alu/jump" type="logic">
       <obj_property name="ElementShortName">jump</obj_property>
       <obj_property name="ObjectShortName">jump</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/data_mem/funct" type="array">
+      <obj_property name="ElementShortName">funct[2:0]</obj_property>
+      <obj_property name="ObjectShortName">funct[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/data_mem/addr" type="array">
+      <obj_property name="ElementShortName">addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/data_mem/w_data" type="array">
+      <obj_property name="ElementShortName">w_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">w_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/data_mem/Re" type="logic">
+      <obj_property name="ElementShortName">Re</obj_property>
+      <obj_property name="ObjectShortName">Re</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/data_mem/We" type="logic">
+      <obj_property name="ElementShortName">We</obj_property>
+      <obj_property name="ObjectShortName">We</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/data_mem/read_data" type="array">
+      <obj_property name="ElementShortName">read_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">read_data[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/data_mem/ram_data_o" type="array">
+      <obj_property name="ElementShortName">ram_data_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">ram_data_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/test_clk/test/data_mem/write_data" type="array">
+      <obj_property name="ElementShortName">write_data[31:0]</obj_property>
+      <obj_property name="ObjectShortName">write_data[31:0]</obj_property>
    </wvobject>
 </wave_config>

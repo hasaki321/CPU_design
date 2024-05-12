@@ -1,23 +1,25 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/design.srcs/sources_1/ip/blk_mem_gen_1/sim/blk_mem_gen_1.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/design.srcs/sources_1/ip/blk_mem_gen_1/sim/blk_mem_gen_1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module blk_mem_gen_1
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/design.srcs/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/design.srcs/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module blk_mem_gen_0
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/ALU.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/ALU.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ALU
-INFO: [VRFC 10-2458] undeclared symbol temp, assumed default net type wire [C:/Users/hasaki/Desktop/CPU_design/design/ALU.v:29]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/ControlUnit.v" into library xil_defaultlib
+INFO: [VRFC 10-2458] undeclared symbol temp, assumed default net type wire [C:/Users/h/Desktop/CPU_design/design/ALU.v:29]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/ControlUnit.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ControlUnit
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/DataMem.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/DataMem.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module DataMem
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/ID.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/ID.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ID
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/InstrMem.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/InstrMem.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module InstrMem
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/PC.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/PC.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module pc_reg
-WARNING: [VRFC 10-2292] extra semicolon is not allowed here in this dialect. Use SystemVerilog mode [C:/Users/hasaki/Desktop/CPU_design/design/PC.v:17]
-WARNING: [VRFC 10-2292] extra semicolon is not allowed here in this dialect. Use SystemVerilog mode [C:/Users/hasaki/Desktop/CPU_design/design/PC.v:28]
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/RegFile.v" into library xil_defaultlib
+WARNING: [VRFC 10-986] literal value truncated to fit in 32 bits [C:/Users/h/Desktop/CPU_design/design/PC.v:16]
+WARNING: [VRFC 10-2292] extra semicolon is not allowed here in this dialect. Use SystemVerilog mode [C:/Users/h/Desktop/CPU_design/design/PC.v:17]
+WARNING: [VRFC 10-986] literal value truncated to fit in 32 bits [C:/Users/h/Desktop/CPU_design/design/PC.v:21]
+WARNING: [VRFC 10-2292] extra semicolon is not allowed here in this dialect. Use SystemVerilog mode [C:/Users/h/Desktop/CPU_design/design/PC.v:28]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/RegFile.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RegFile
-INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/hasaki/Desktop/CPU_design/design/test_clk.v" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/h/Desktop/CPU_design/design/test_clk.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module test_clk

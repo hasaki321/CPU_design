@@ -13,12 +13,12 @@ module pc_reg (
 );
 
 initial begin
-    pc = 32'b0;
+    pc = 32'hFFFFFFFFFFFFFFFC;
 end;
 
 always @(posedge clk) begin // 在周期的上升边或下降边沿
     if (reset)
-        pc = 32'b0;
+        pc = 32'hFFFFFFFFFFFFFFFC;
     else if (jump) begin
         pc = pc_imm;
     end

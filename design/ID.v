@@ -17,8 +17,8 @@ module ID (
     output reg memwrite,
     output reg regwrite,
     output reg immadd,
-    output reg [1:0] jumpi,
-    output reg alului
+    output reg [1:0] jumpi
+    // output reg alului
 );
 
 wire    [6:0]   opcode  =   instr[6:0] ;
@@ -45,10 +45,10 @@ always @(*) begin
     regwrite        =   1'b0;
     branch          =   1'b0;
     jumpi            =   2'b0;
-    alului = 2'b0;
+    // alului = 2'b0;
 
     
-    aluctr = 4'h0;
+    aluctr = 3'h0;
 
     funct = funct3;
 

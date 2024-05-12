@@ -29,7 +29,7 @@ end;
 reg imem_clk;
 
 always @(posedge clk or negedge clk) begin
-    imem_clk <= #0.05 clk; // 添加 1 个时钟周期的延迟
+    imem_clk <= #0.01 clk; // 添加 1 个时钟周期的延迟
 end
 InstrMem instruc_menmory(
     imem_clk,

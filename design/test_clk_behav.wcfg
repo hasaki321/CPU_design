@@ -11,35 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="819220000fs"></ZoomStartTime>
-      <ZoomEndTime time="823699027fs"></ZoomEndTime>
-      <Cursor1Time time="406044000fs"></Cursor1Time>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="2826001fs"></ZoomEndTime>
+      <Cursor1Time time="2294000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="114"></NameColumnWidth>
-      <ValueColumnWidth column_width="94"></ValueColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="20" />
-   <wave_markers>
-      <marker time="31294000" label="" />
-      <marker time="34304000" label="" />
-      <marker time="35282000" label="" />
-      <marker time="42317000" label="" />
-      <marker time="55256000" label="" />
-      <marker time="62317000" label="" />
-      <marker time="65327000" label="" />
-      <marker time="69273000" label="" />
-      <marker time="71272000" label="" />
-      <marker time="77292000" label="" />
-      <marker time="81292000" label="" />
-      <marker time="83238000" label="" />
-      <marker time="89289000" label="" />
-      <marker time="113281000" label="" />
-      <marker time="117250000" label="" />
-      <marker time="125319000" label="" />
-      <marker time="131277000" label="" />
-      <marker time="188137000" label="" />
-   </wave_markers>
+   <WVObjectSize size="19" />
    <wvobject fp_name="/test_clk/reset" type="logic">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
@@ -90,10 +70,6 @@
    <wvobject fp_name="/test_clk/test/rs2_data" type="array">
       <obj_property name="ElementShortName">rs2_data[31:0]</obj_property>
       <obj_property name="ObjectShortName">rs2_data[31:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/test_clk/test/alu/pc" type="array">
-      <obj_property name="ElementShortName">pc[31:0]</obj_property>
-      <obj_property name="ObjectShortName">pc[31:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/test_clk/test/alu/jumpi" type="array">
       <obj_property name="ElementShortName">jumpi[1:0]</obj_property>
